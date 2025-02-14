@@ -1,0 +1,13 @@
+{
+  "routes": {
+    "/C:/Program Files/Git/kip": {},
+    "/C:/Program Files/Git/kip/auth": {},
+    "/C:/Program Files/Git/kip/auth/forget-password": {},
+    "/C:/Program Files/Git/kip/auth/login": {},
+    "/C:/Program Files/Git/kip/brands": {},
+    "/C:/Program Files/Git/kip/cart": {},
+    "/C:/Program Files/Git/kip/categories": {},
+    "/C:/Program Files/Git/kip/home": {},
+    "/C:/Program Files/Git/kip/products": {}
+  }
+}

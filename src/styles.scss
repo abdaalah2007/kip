@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --font-family: "Encode Sans", serif !important ;
+    background-color: white !important;
+ }
+
+
+
+
+
+
+
+
+
+
