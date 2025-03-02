@@ -1,1 +1,153 @@
-<p>cart works!</p>
+@if (isLoading) {
+    <div class="m-auto w-[90%] mb-7 mt-[110px]">
+        <div role="status" class=" space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
+            <div class="flex items-center justify-center w-full h-48 bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700">
+                <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                    <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+                </svg>
+            </div>
+            <div class="w-full">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[440px] mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+            </div>
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div role="status" class=" mt-3 space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
+            <div class="flex items-center justify-center w-full h-48 bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700">
+                <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                    <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+                </svg>
+            </div>
+            <div class="w-full">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[440px] mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+            </div>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+     
+
+}@else{
+    @if (CartDetails?.numOfCartItems!= 0&& !emptyCart){
+        <section class="cart mt-[120px] mb-8">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-auto w-[90%]">
+            <div class="cart__header mb-5 flex justify-between items-center">
+             <h2 class="text-3xl font-semibold text-black">Total Cart Item : <span class="text-green-600">{{CartDetails.numOfCartItems}}</span></h2>
+             <div class="flex items-center">
+                 <p class="text-3xl font-semibold me-4 text-black">Total Cart Price: <span class="text-green-600 ">  {{CartDetails.data.totalCartPrice | currency: '  EG '}}</span> </p>
+                    <button (click)="clareCart()"  class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "> <i class="fa-solid fa-trash"></i>
+                        clear</button>      
+             </div>
+            </div>
+             <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                     <tr>
+                         <th scope="col" class="px-16 py-3">
+                             <span class="sr-only">Image</span>
+                         </th>
+                         <th scope="col" class="px-6 py-3">
+                             Product
+                         </th>
+                         <th scope="col" class="px-6 py-3">
+                             Qty
+                         </th>
+                         <th scope="col" class="px-6 py-3">
+                             Price
+                         </th>
+                         <th scope="col" class="px-6 py-3">
+                             Action
+                         </th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     @for (Product of CartDetails?.data?.products; track $index) {
+                         <tr class="bg-white border-b  border-gray-200 hover:bg-gray-50">
+                             <td class="p-4">
+                                 <img [src]="Product.product.imageCover" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                             </td>
+                            
+                             <td class="px-6 py-4 font-semibold text-gray-900 ">
+                            {{Product.product.title.split(" ").splice(0,4).join(" ")}}
+                             </td>
+                             <td class="px-6 py-4">
+                                 <div class="flex items-center">
+                                     <button (click)="updateCart(Product.product._id , Product.count - 1)" class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 " type="button">
+                                         <span class="sr-only">Quantity button</span>
+                                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                                         </svg>
+                                     </button>
+                                     <div>
+                                         <span>{{Product.count}}</span>
+                                     </div>
+                                     <button (click)="updateCart(Product.product._id , Product.count + 1)" class="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 " type="button">
+                                         <span class="sr-only">Quantity button</span>
+                                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                         </svg>
+                                     </button>
+                                 </div>
+                             </td>
+                             <td class="px-6 py-4 font-semibold text-gray-900 ">
+                                 {{Product.price | currency: 'EG '}}
+                             </td>
+                             <td class="px-6 py-4">
+                                 <button (click)="removeItem(Product.product._id)" class="text-red-600 text-lg">
+                                    <i class="fa-regular fa-xmark"></i>
+                                    Remove</button>
+                             </td>
+                         </tr>
+                     }
+                 </tbody>
+             </table>
+             <div class="cart__actions w-[100%] mt-5  ">
+                <!-- <a  class="bg-main p-4 text-white inline-block my-6" >continuw</a> -->
+                <a [routerLink]="['/checkout', CartDetails.cartId]"
+      class="relative flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-green-500 rounded-md group   "
+    >
+      <span
+        class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-green-600 rounded group-hover:-mr-4 group-hover:-mt-4"
+      >
+        <span
+          class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+        ></span>
+      </span>
+      <span
+        class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-green-600  rounded group-hover:-ml-4 group-hover:-mb-4"
+      >
+        <span
+          class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+        ></span>
+      </span>
+      <span
+        class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-green-600 rounded-md group-hover:translate-x-0"
+      ></span>
+      <span
+        class="relative w-full  text-white transition-colors duration-200 ease-in-out group-hover:text-white text-center "
+        >Get Started</span
+      >
+    </a>
+            </div>
+         </div>
+     
+        </section>
+    }@else {
+        <div class="text-center mt-14 mb-5">
+        <i class="fa-regular fa-cart-shopping-fast  text-main text-[100px]"></i>
+        <h1 class="text-6xl text-slate-600 my-8">No Cart Item ... Start To Shop Now</h1>
+        <a routerLink="/products" class="text-4xl text-lime-600 border py-3 px-7 rounded-xl  hover:bg-green-300">Products</a>
+         </div>
+    }
+}
+
+
+ 
+

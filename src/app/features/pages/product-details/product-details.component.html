@@ -1,1 +1,48 @@
-<p>product-details works!</p>
+@if (APIError) {
+    <h1>Failded to load product</h1>
+}@else {
+    <div class=" my-10 grid grid-cols-1 md:grid-cols-2  ">
+    
+    
+            <owl-carousel-o [options]="customOptions ">
+    
+                @for (src of productDetails.images; track $index) {
+                <ng-template carouselSlide class="">
+                    <figure class="">
+                        <img [src]="src" [alt]="src" height="" >
+
+                    </figure>
+                </ng-template>
+                 }
+            </owl-carousel-o>
+       
+        <div class="">
+            <h1 class="text-4xl mb-3">{{productDetails.title}}</h1>
+            <p class="mb-8">{{productDetails.description}}</p>
+    
+            <span class="text-main">{{productDetails?.category?.name}}</span>
+    
+            <p class="text-xl font-semibold">
+                <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i> {{ productDetails.price | currency: 'EG ' }}
+            </p> 
+            <button (click)="addToCard(productDetails._id)" class="bg-main p-5 w-full">
+            
+                @if (isLoading) {
+                    <i class="fa fa-spin fa-spinner"></i>
+                }@else {
+                    add
+                }
+               
+            </button>
+        </div>
+    </div>
+    <h2 #related class="text-4xl font-bold my-10 w-[90%] m-auto ">Related Prodcuts</h2>
+    
+        @defer (on viewport(related)) {
+
+                <app-recent-products></app-recent-products>
+            
+        }
+
+}
+

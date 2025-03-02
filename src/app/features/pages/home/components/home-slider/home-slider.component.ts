@@ -3,14 +3,13 @@ import { CategoriesSliderService } from '../../../../../shared/services/categori
 import { Category } from '../../../../../shared/interfaces/categories-slider';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { Image } from 'primeng/image';
 
 
  
 
 @Component({
   selector: 'app-home-slider', 
-  imports: [ CarouselModule,Image ],
+  imports: [ CarouselModule],
   templateUrl: './home-slider.component.html',
   standalone: true,
   styleUrl: './home-slider.component.scss'
@@ -21,31 +20,39 @@ export class HomeSliderComponent implements OnInit {
   _categoriesSliderService=inject(CategoriesSliderService)
 
   categories!:Category[]
-
-  customOptions: OwlOptions= {
+  customOptions: OwlOptions = {
+    center: true,
     loop: true,
     mouseDrag: true,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
+    navSpeed: 300,
+    autoplay:true,
+    autoplayTimeout:1500,
+    autoplayHoverPause:false,
     responsive: {
-      0: {
-        items: 1
+      0:{
+        items:2
       },
-      400: {
-        items: 2
+      400:{
+        items:3
       },
-      740: {
-        items: 3
+      510:{
+        items:4
       },
-      940: {
-        items: 7
+      710:{
+        items:5
+      },
+      810:{
+        items:6
+      },
+      950:{
+        items:7
       }
-    },
-    nav: true
-  }
+    }
+  };
+  
 
 
     ngOnInit(): void {

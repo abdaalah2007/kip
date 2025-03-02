@@ -1,1 +1,26 @@
-<p>products works!</p>
+@if (isLoding) {
+    <div class="grid grid-cols-3 w-[90%] m-auto gap-5">
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+    
+        
+        </div>
+}@else {
+    <div class="mt-[110px]">
+       
+
+        <app-recent-products></app-recent-products>
+    
+    
+    </div>
+}

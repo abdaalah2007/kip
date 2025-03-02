@@ -1,115 +1,181 @@
-<div class="flex items-center mb-5 m-auto w-[90%]">
-  
-<div class="card bg-red-500">
-    <p-dataview #dv [value]="prodoucts" [layout]="layout">
-        <ng-template #header>
-            <div class="flex justify-end">
-                <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
-                    <ng-template #item let-item>
-                        <i class="pi " [ngClass]="{ 'fa-duotone fa-solid fa-bars-sort': item === 'list', 'fa-thin fa-table-cells': item === 'grid' }"></i>
-                    </ng-template>
-                </p-selectbutton>
-            </div>
-        </ng-template>
-        <ng-template #list let-items>
-            
-            <div *ngFor="let item of prodoucts; let first = first">
-                <div
-                    class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
-                    [ngClass]="{ 'border-t border-surface-200 ': !first }"
-                >
-                    <div class="md:w-40 relative">
-                        <img
-                            class="block xl:block mx-auto rounded w-full"
-                            [src]="item.imageCover"
-                            [alt]="item.title"
-                        />
+<!-- <form class="w-[80%] mx-auto my-7">   
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+        </div>
+        <input [(ngModel)]="mytitle" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-main focus:border-main " placeholder="Search Mockups, Logos..." required />
+        <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-main hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
+    </div>
+</form> -->
+<div class="w-[80%] mx-auto my-7">
 
-                    </div>
-                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
-                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
-                            <div>
-                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                <div class="text-lg font-medium mt-2">{{ item.title.split(" ").splice(0.2).join(" ") }}</div>
-                            </div>
-                            <div class="bg-surface-100 p-1" style="border-radius: 30px">
-                                <div
-                                    class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2"
-                                    style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
-                                >
-                                    <span class="text-surface-900 font-medium text-sm">{{ item.ratingsQuantity }}</span>
-                                    <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i>                               </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:items-end gap-8">
-                            <span class="text-xl font-semibold">{{ item.price | currency: 'EG ' }}</span>
-                            <div class="flex flex-row-reverse md:flex-row gap-2">
-                                <button pButton icon="fa-sharp-duotone fa-solid fa-cart-shopping fa-fade" [outlined]="true"></button>
-                                <button
-                                    pButton
-                                    icon="pi pi-shopping-cart"
-                                    label="Buy Now"
-                                    [disabled]="item.quantity === 0"
-                                    class="flex-auto md:flex-initial whitespace-nowrap"
-                                ></button>
-                            </div>
-                        </div>
-                    </div>
+    <input [(ngModel)]="mytitle" type="search"  class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50  focus:border-main " placeholder="Search Mockups, Logos..."  />
+</div>
+
+
+@if (!prodoucts) {
+    <div class="grid grid-cols-3 w-[90%] m-auto gap-5">
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        <app-loding></app-loding>
+        </div>
+}@else {
+    <div
+    pAnimateOnScroll
+    enterClass="animate-fadeinleft"
+    leaveClass="animate-fadeoutleft"
+    class=" items-center mb-5 m-auto w-[90%] block animate-duration-1000 animate-ease-in-out bg-white  "
+    >
+    <div class="card bg-white block  ">
+        <p-dataview #dv [value]="prodoucts" [layout]="layout">
+            <ng-template #header>
+                <div class="flex justify-end ">
+                    <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
+                        <ng-template #item let-item>
+                            <i class="pi " [ngClass]="{ 'fa-duotone fa-solid fa-bars-sort': item === 'list', 'fa-thin fa-table-cells': item === 'grid' }"></i>
+                        </ng-template>
+                    </p-selectbutton>
                 </div>
-            </div>
-        </ng-template>
-        <ng-template #grid let-items>
-            <div class="grid grid-cols-12 gap-4">
-                <div *ngFor="let product of prodoucts" class="col-span-12 sm:col-span-6 md:col-span-3 xl:col-span-3 p-2">
-                    <div
-                        class="p-6 border border-surface-200 bg-surface-0  rounded flex flex-col"
-                    >
-                        <div class="bg-surface-50 flex justify-center rounded p-4">
-                            <div class="relative mx-auto">
-                                <img
-                                    class="rounded w-full"
-                                    [src]=" product.imageCover"
-                                    [alt]="product.title"
-                                    style="max-width: 300px"
-                                />
+            </ng-template>
+            <ng-template #list let-items>
 
-                            </div>
+                <div *ngFor="let item of prodoucts | search:mytitle; let first = first">
+
+
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center p-6 gap-4 "
+                        [ngClass]="{ 'border-t border-surface-200 ': !first }"
+                    >
+
+                        <div class="md:w-40 relative">
+                            <a [routerLink]="['/productDetails',item._id]" >
+                            <img
+                                class="block xl:block mx-auto rounded w-full"
+                                [src]="item.imageCover"
+                                [alt]="item.title"
+                            />
+                        </a>
                         </div>
-                        <div class="pt-6">
-                            <div class="flex flex-row justify-between products-start gap-2">
+
+                        <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6 ">
+                            <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+
                                 <div>
-                                    <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{
-                                        product.category
-                                    }}</span>
-                                    <div class="text-lg font-medium mt-1">{{ product.title.split(" ").splice(0.2).join(" ") }}</div>
+
+                                    <span class="font-medium text-surface-500  text-sm">{{ item.category.name }}</span>
+                                    <div class="text-lg font-medium mt-2">{{ item.title.split(" ").splice(0,4).join(" ") }}</div>
                                 </div>
-                                <div class="bg-surface-100 p-1" style="border-radius: 30px; height:100%">
+                                <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                     <div
-                                        class="bg-surface-0 flex products-center gap-2 justify-center py-1 px-2"
+                                        class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2"
                                         style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
                                     >
-                                        <span class="text-surface-900 font-medium text-sm">{{ product.ratingsAverage }}</span>
-                                        <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i>                                    </div>
+                                        <span class="text-surface-900 font-medium text-sm">{{ item.ratingsQuantity }}</span>
+                                        <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i>                               </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-6 mt-6">
-                                <span class="text-2xl font-semibold">{{ product.price | currency: 'EG ' }}</span>
-                                <div class="flex gap-2">
-                                    <button
+                        </div>
+                            <div class="flex flex-col md:items-end gap-8">
+                                <span class="text-xl font-semibold me-10">{{ item.price | currency: 'EG ' }}</span>
+
+                                <div class="flex flex-row-reverse md:flex-row gap-2">
+
+                                    <button #load
+                                    (click)="addToCart(item.id , load)"
                                         pButton
-                                        icon="fa-sharp-duotone fa-solid fa-cart-shopping fa-fade"
-                                        label="Buy Now"
-                                        [disabled]="product.quantity === 0"
-                                        class="flex-auto whitespace-nowrap"
-                                    ></button>
-                                    <button pButton  outlined><i class="fa-sharp fa-regular fa-heart" style="color: #0aad0a;"></i></button>
-                                    
+                                        icon="pi pi-shopping-cart"
+                                        [disabled]="item.quantity === 0"
+                                        class="button flex-auto md:flex-initial whitespace-nowrap"
+                                    >   @if (load.disabled) {
+                                        <i class="fa fa-spin fa-spinner"></i>
+                                    }@else {
+                                        <i class="fa-sharp-duotone fa-solid fa-cart-shopping fa-fade"></i>
+                                        <span>  Buy Now</span>
+                                    }
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+
+            </ng-template>
+            <ng-template #grid let-items>
+                <div class="grid grid-cols-12 gap-4">
+
+
+                    <div *ngFor="let product of prodoucts | search:mytitle" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3 p-2">
+                        <div
+                            class="p-6 border border-surface-200 bg-surface-0  rounded flex flex-col"
+                        >
+                            <div class="bg-surface-50 flex justify-center rounded p-4">
+                                <a  [routerLink]="['/productDetails',product._id]" >
+                                <div class="relative mx-auto">
+                                    <img
+                                        class="rounded w-full"
+                                        [src]=" product.imageCover"
+                                        [alt]="product.title"
+                                        style="max-width: 300px"
+                                    />
+
+                                </div>
+                            </a>
+                                </div>
+                            <div class="pt-6">
+                                <div class="flex flex-row justify-between products-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-surface-500  text-sm">{{product.category.name}}</span>
+                                        <div class="text-lg font-medium mt-1">{{ product.title.split(" ").splice(0,2).join(" ") }}</div>
+                                    </div>
+                                    <div class="bg-surface-100 p-1" style="border-radius: 30px; height:100%">
+                                        <div
+                                            class="bg-surface-0 flex products-center gap-2 justify-center py-1 px-2"
+                                            style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
+                                        >
+                                            <span class="text-surface-900 font-medium text-sm">{{ product.ratingsAverage }}</span>
+                                            <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i>                                    </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-6 mt-6">
+                                    <span class="text-2xl font-semibold">{{ product.price | currency: 'EG ' }}</span>
+
+                                    <div class="flex gap-2">
+                                        <button #load
+                                            pButton
+                                            [disabled]="product.quantity === 0"
+                                            class="button w-[100%]"
+                                            (click)="addToCart(product.id,load)"
+                                        >  @if (load.disabled) {
+                                            <i class="fa fa-spin fa-spinner"></i>
+                                        }@else {
+                                            <i class="fa-sharp-duotone fa-solid fa-cart-shopping fa-fade"></i>
+                                            <span>  Buy Now</span>
+                                        }
+                                    </button>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </ng-template>
-    </p-dataview>
-</div>
+            </ng-template>
+        </p-dataview>
+    </div>
+    </div>
+}
+
+
+

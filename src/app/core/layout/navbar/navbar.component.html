@@ -1,69 +1,80 @@
-<nav class="bg-slate-100 border-gray-200 ">
+ <nav class="bg-slate-100 border-gray-200   transition-all duration-300"
+     [ngClass]="{ 'p-2 shadow-md': isScrolling, 'p-4': !isScrolling }">
+
+
   <div class="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto p-4">
 
     <div class="flex items-center gap-x-3">
       <a class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="images/freshcart-logo.svg" alt="">
       </a>
+      @if(isLoggedIn){
+        <div class="hidden w-full absolute md:static top-[40px] left-0 md:block md:w-auto " id="navbar-default">
+          <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-slate-100 md:flex-row md:space-x-8  md:mt-0 md:border-0  ">
+            <li>
+              <a routerLink="/home" routerLinkActive="text-main"
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">home</a>
+            </li>
+            <li>
+              <a routerLink="/cart" routerLinkActive="text-main"
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">cart</a>
+            </li>
+            <li>
+              <a routerLink="/products" routerLinkActive="text-main"
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">products</a>
+            </li>
+            <li>
+              <a routerLink="/categories" routerLinkActive="text-main"
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">catagories</a>
+            </li>
+            <li>
+              <a routerLink="/brands" routerLinkActive="text-main"
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">brands</a>
+            </li>
+  
+          </ul>
+        </div> 
+      }
+   
 
-      <div class="hidden w-full absolute md:static top-[40px] left-0 md:block md:w-auto " id="navbar-default">
-        <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-slate-100 md:flex-row md:space-x-8  md:mt-0 md:border-0  ">
-          <li>
-            <a routerLink="/home" routerLinkActive="text-main"
-              class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">Home</a>
-          </li>
-          <li>
-            <a routerLink="/cart" routerLinkActive="text-main"
-              class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">Cart</a>
-          </li>
-          <li>
-            <a routerLink="/products" routerLinkActive="text-main"
-              class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">Products</a>
-          </li>
-          <li>
-            <a routerLink="/categories" routerLinkActive="text-main"
-              class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">Catagories</a>
-          </li>
-          <li>
-            <a routerLink="/brands" routerLinkActive="text-main"
-              class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">Brands</a>
-          </li>
-
-        </ul>
-      </div>
     </div>
 
     <div class="flex items-center gap-x-4">
+ 
         <ul class="flex items-center gap-x-3">
-          <li><i class="fa-brands fa-facebook"></i></li>
-          <li><i class="fa-brands fa-instagram"></i></li>
-          <li><i class="fa-brands fa-x-twitter"></i></li>
-          <li><i class="fa-brands fa-linkedin"></i></li>
-          <li><i class="fa-brands fa-tiktok"></i></li>
-          <li><i class="fa-brands fa-youtube"></i></li>
-        </ul>
-        <ul class="flex items-center gap-x-3">
-          <li> 
-            <a routerLink="/auth/register" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">Register</a>
-          </li>
-          <li>
-            <a routerLink="/auth" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">Login</a>
-          </li>
-          <li>
-            <a routerLink="/auth" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">signOut</a>
-          </li>
-        </ul>
+          @if(isLoggedIn){
+            <li>
+              <p (click)="signOut()" class="text-main" >SignOut</p>
+            </li>
+          }@else {
+            <li> 
+              <a routerLink="/auth" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">register</a>
+            </li>
+            <li>
+              <a routerLink="/auth/log" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">login</a>
+            </li>
+          } 
+    
+          <!-- <li>
+            {{"navbar.login" |translate}}
+            <a routerLink="/auth/login" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">Login</a>
+          </li> -->
+        
+        
+ </ul>
+        <button data-collapse-toggle="navbar-default" type="button" class=" inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
 
-    </div>
-<!-- 
-    <button data-collapse-toggle="navbar-default" type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-      aria-controls="navbar-default" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M1 1h15M1 7h15M1 13h15" />
-      </svg>
-    </button>
-  </div>
-</nav> -->
+    </div> 
+
+
+
+
+
+
+    
+

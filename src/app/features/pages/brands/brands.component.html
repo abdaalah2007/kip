@@ -1,1 +1,40 @@
-<p>brands works!</p>
+   @if (isLoading) {
+    <div class="grid grid-cols-3 w-[90%] m-auto gap-5">
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+      <app-loding></app-loding>
+  
+      
+      </div>
+
+   }@else {
+    <div class="grid grid-cols-3  w-[90%] m-auto my-[120px]  gap-5">
+      @for (item of Brand; track $index) { 
+         <div class="brand-logo  rounded-lg p-3 text-center border ">
+          <img class="w-[100%] h-auto max-w-lg transition-all duration-300 rounded-lg blur-xs hover:blur-none" [src]="item.image" [alt]="item.name">
+          <span class="one ">
+            <span class="tow text-xl font-extrabold  ">{{item.name}}</span>
+    
+          </span>
+        </div>
+      }
+      <app-up></app-up>
+    </div>
+   }
+
+   
+
+
+
+
+      
+

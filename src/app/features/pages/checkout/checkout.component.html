@@ -1,1 +1,86 @@
-<p>checkout works!</p>
+<section class="ll mx-auto w-[90%] min-h-[100vh] flex justify-center items-center">
+<div class="w-[80%]">
+    <header>
+        <h2 class="text-center mb-7">
+            <span class="bg-main text-3xl p-2 rounded-xl text-white">Payment Details</span>
+        </h2>
+    </header>
+    
+    <form [formGroup]="submitForm" (ngSubmit)="onSubmitForm(selectedMethod)">
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="city" formControlName="city" id="city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-main peer" placeholder=" " required />
+            <label for="city" class="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City Address</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="tel" formControlName="phone" name="phone" id="phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-main peer" placeholder=" " required />
+            <label for="phone" class="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone Address</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <textarea rows="4" formControlName="details" name="details" id="details" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:text-main focus:border-main ">Details Address</textarea>
+            <label for="details" class="block mb-2 text-sm font-medium text-gray-900 "></label>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="cart__actions   ">
+                <!-- <a  class="bg-main p-4 text-white inline-block my-6" >continuw</a> -->
+                <button (click)="selectedMethod='Cash'"
+      class="relative flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-green-500 rounded-md group   "
+    >
+      <span
+        class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-green-600 rounded group-hover:-mr-4 group-hover:-mt-4"
+      >
+        <span
+          class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+        ></span>
+      </span>
+      <span
+        class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-green-600  rounded group-hover:-ml-4 group-hover:-mb-4"
+      >
+        <span
+          class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+        ></span>
+      </span>
+      <span
+        class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-green-600 rounded-md group-hover:translate-x-0"
+      ></span>
+      <span
+        class="relative w-full  text-white transition-colors duration-200 ease-in-out group-hover:text-white text-center "
+        >Cash Payment</span
+      >
+                </button>
+            </div>
+            <div class="cart__actions   ">
+                <!-- <a  class="bg-main p-4 text-white inline-block my-6" >continuw</a> -->
+                <button (click)="selectedMethod='Online'" 
+      class="relative flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-green-500 rounded-md group   "
+    >
+      <span
+        class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-green-600 rounded group-hover:-mr-4 group-hover:-mt-4"
+      >
+        <span
+          class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+        ></span>
+      </span>
+      <span
+        class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-green-600  rounded group-hover:-ml-4 group-hover:-mb-4"
+      >
+        <span
+          class="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"
+        ></span>
+      </span>
+      <span
+        class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-green-600 rounded-md group-hover:translate-x-0"
+      ></span>
+      <span
+        class="relative w-full  text-white transition-colors duration-200 ease-in-out group-hover:text-white text-center "
+        >Online Payment</span
+      >
+                </button>
+            </div>
+        </div>
+       
+
+
+    </form>
+</div>
+</section>
