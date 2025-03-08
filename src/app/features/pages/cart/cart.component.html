@@ -34,7 +34,7 @@
         </div>
     </div>
 }@else{
-    @if (CartDetails?.numOfCartItems!= 0&& !emptyCart){
+    @if (CartDetails.numOfCartItems!= 0&& !emptyCart){
         <section class="cart mt-[120px] mb-8">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-auto w-[90%]">
             <div class="cart__header mb-5 flex justify-between items-center">
@@ -66,7 +66,7 @@
                      </tr>
                  </thead>
                  <tbody>
-                     @for (Product of CartDetails?.data?.products; track $index) {
+                     @for (Product of CartDetails.data.products; track $index) {
                          <tr class="bg-white border-b  border-gray-200 hover:bg-gray-50">
                              <td class="p-4">
                                  <img [src]="Product.product.imageCover" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">

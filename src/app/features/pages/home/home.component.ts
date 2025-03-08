@@ -6,7 +6,7 @@ import { UpComponent } from "../../../shared/components/up/up.component";
 
 @Component({
   selector: 'app-home',
-  imports: [RecentProductsComponent, HomeHaedarComponent, HomeSliderComponent, UpComponent],
+  imports: [RecentProductsComponent, HomeHaedarComponent, HomeSliderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

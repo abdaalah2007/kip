@@ -42,13 +42,13 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
-             "src/asset/css/all.min.css",
-              "src/asset/css/keyframes.css",
-              "src/asset/css/sharp-duotone-solid.css",
-              "src/asset/css/sharp-light.css",
-              "src/asset/css/sharp-regular.css",
-              "src/asset/css/sharp-solid.css",
-              "src/asset/css/sharp-thin.css",
+             "./src/asset/css/all.min.css",
+              "./src/asset/css/keyframes.css",
+              "./src/asset/css/sharp-duotone-solid.css",
+              "./src/asset/css/sharp-light.css",
+              "./src/asset/css/sharp-regular.css",
+              "./src/asset/css/sharp-solid.css",
+              "./src/asset/css/sharp-thin.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -65,12 +65,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "10kB",
-                  "maximumError": "10MB"
+                  "maximumWarning": "5mb",
+                  "maximumError": "5Mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "10kB",
+                  "maximumWarning": "5kB",
                   "maximumError": "8kB"
                 }
               ],

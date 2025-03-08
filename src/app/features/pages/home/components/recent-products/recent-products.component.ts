@@ -30,7 +30,7 @@ import { SearchPipe } from '../../../../../shared/pipes/search.pipe';
     SearchPipe,
     RouterLink,
     DataView,
-    Tag,
+
     RatingModule,
     ButtonModule,
     CommonModule,

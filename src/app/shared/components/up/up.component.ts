@@ -4,7 +4,7 @@ import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-up',
-  imports: [ AnimateOnScroll],
+  imports: [ ],
   templateUrl: './up.component.html',
   styleUrl: './up.component.scss'
 })

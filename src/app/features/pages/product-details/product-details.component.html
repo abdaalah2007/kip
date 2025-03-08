@@ -20,7 +20,7 @@
             <h1 class="text-4xl mb-3">{{productDetails.title}}</h1>
             <p class="mb-8">{{productDetails.description}}</p>
     
-            <span class="text-main">{{productDetails?.category?.name}}</span>
+            <span class="text-main">{{productDetails.category.name}}</span>
     
             <p class="text-xl font-semibold">
                 <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i> {{ productDetails.price | currency: 'EG ' }}

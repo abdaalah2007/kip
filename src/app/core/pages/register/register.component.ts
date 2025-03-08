@@ -9,7 +9,7 @@ import { ErrorMassageComponent } from "../../../shared/ui/error-massage/error-ma
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule, ReactiveFormsModule, JsonPipe, ErrorMassageComponent],
+  imports: [FormsModule, ReactiveFormsModule, ErrorMassageComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
