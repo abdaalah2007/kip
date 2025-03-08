@@ -22,7 +22,7 @@ export class AllOrdersComponent implements OnInit {
       const userId = localStorage.getItem('userId') as string
       this._orderService.getAllOrders( userId ).subscribe({
         next: (response) => {
-          console.log(response);
+        
           this.allOrders = response;
         }
   

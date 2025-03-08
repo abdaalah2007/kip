@@ -1,41 +1,37 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()" class="max-w-md mx-auto p-10 mt-[110px] mb-10">
-    <h1 class="text-center mb-14 text-[30px] font-bold bg-main rounded-3xl" >Register</h1>
+<div class="flex align-items-center justify-center">
+<div class="box mt-[110px] ">
+    <div class="login">
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="loginBx ">
+    <h1 class="text-center text-[30px] font-bold bg-main rounded-3xl mt-[100px] " >Register</h1>
 
     @if(apiError){
-        <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
+        <div class=" text-sm text-red-800 rounded-lg bg-red-50 " role="alert">
             {{apiError}}
         </div>
     }
-    <div class="relative z-0 w-full mb-5 group">
-        <input formControlName="name" type="text" name="floating_name" id="floating_name" class="input-style peer" placeholder=" " required />
-        <label for="floating_name" class="label-style peer-focus:font-medium scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User Name</label>
+    <div class="relative z-0 w-full  group my-5">
+        <input formControlName="name" type="text" name="floating_name" id="floating_name" class="input-style peer" placeholder="Name " required />
         @let nameControl = registerForm.get("name") ;
          <app-error-massage [nameControl]="nameControl"></app-error-massage>
         </div>
     <div class="relative z-0 w-full mb-5 group">
         @let emailControl =registerForm.get("email");
-        <input formControlName="email" type="email" name="floating_email" id="floating_email" class="input-style peer" placeholder=" " required />
-        <label for="floating_email" class="label-style peer-focus:font-medium scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User Email</label>
+        <input formControlName="email" type="email" name="floating_email" id="floating_email" class="input-style peer" placeholder="Email " required />
         <app-error-massage [nameControl]="emailControl"></app-error-massage>
      
     </div>
     <div class="relative z-0 w-full mb-5 group">
         @let passwordControl = registerForm.get("password") ;
 
-        <input formControlName="password" type="password" name="floating_password" id="floating_password" class="input-style peer" placeholder=" " required />
-        <label for="floating_password" class="label-style peer-focus:font-medium scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User Password</label>
+        <input formControlName="password" type="password" name="floating_password" id="floating_password" class="input-style peer" placeholder="Password " required />
         <app-error-massage [nameControl]="passwordControl"></app-error-massage>
-
-
-       
     </div>
 
 
 
 
     <div class="relative z-0 w-full mb-5 group">
-        <input formControlName="rePassword" type="password" name="floating_rePassword" id="floating_rePassword" class="input-style peer" placeholder=" " required />
-        <label for="floating_rePassword" class="label-style peer-focus:font-medium scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User RePassword</label>
+        <input formControlName="rePassword" type="password" name="floating_rePassword" id="floating_rePassword" class="input-style peer" placeholder="RePassword " required />
 
         @let repasswordControl = registerForm.get("rePassword") ;
         @if(repasswordControl?.touched &&( repasswordControl?.errors ||registerForm.getError('misMatch') ) ){
@@ -54,8 +50,7 @@
                      }
     </div>
     <div class="relative z-0 w-full mb-5 group">
-        <input formControlName="phone" type="tel" name="floating_phone" id="floating_phone" class="input-style peer" placeholder=" " required />
-        <label for="floating_phone" class="label-style peer-focus:font-medium scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User phone</label>
+        <input formControlName="phone" type="tel" name="floating_phone" id="floating_phone" class="input-style peer" placeholder="Phone" required />
         @let phoneControl = registerForm.get("phone") ;
         <app-error-massage [nameControl]="phoneControl"></app-error-massage>
 
@@ -70,4 +65,8 @@
        
     </button>
   </form>
+      </div>
+    </div>
+</div>
+
   

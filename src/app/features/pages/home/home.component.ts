@@ -13,14 +13,14 @@ import { UpComponent } from "../../../shared/components/up/up.component";
 export class HomeComponent {
 
 
-  isScrolling: boolean = false; // للتحكم في السهم عند التمرير
+  isScrolling: boolean = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolling = window.scrollY > 100; // إظهار السهم إذا تجاوز التمرير 100px
+    this.isScrolling = window.scrollY > 100;
   }
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // التحرك بسلاسة للأعلى
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   }
 
 }

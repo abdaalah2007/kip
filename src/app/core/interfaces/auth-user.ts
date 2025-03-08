@@ -4,6 +4,7 @@ export interface AuthUser {
     password:string,
     rePassword:string,
     phone:string
+    resetCode:string
 }
 export interface LoginUser {
     email:string,

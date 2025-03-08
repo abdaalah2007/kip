@@ -3,13 +3,10 @@
         "home":"Home",
         "cart":"Cart",
         "products":"Products",
-        "categories":"categories",
+        "categories":"Categories",
         "brands":"Brands",
         "register":"Register",
         "login":"Login"
-
-
-
     }
 
 }

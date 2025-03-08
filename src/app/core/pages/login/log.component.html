@@ -1,0 +1,63 @@
+<div class="flex align-items-center justify-center">
+   <div class="box mt-[110px] mb-10  ">
+    <div class="login">
+
+          <form [formGroup]="loginForm" (ngSubmit)="login()" class="loginBx">
+            <h1 class="text-center text-[30px] font-bold bg-main rounded-3xl mb-[73px]" >LogIn</h1>
+            
+            @if(apiError){
+                <div class=" text-red-800 rounded-lg bg-red-50  " role="alert">
+                    {{apiError}}
+                </div>
+            }
+           
+            <div class=" my-9 ">
+                @let emailControl =loginForm.get("email");
+                <input formControlName="email"
+                 type="email"
+                  name="floating_email"
+                   id="floating_email"
+                    class="input-style peer text-white mb-3 "
+                   placeholder="Email " required />
+        
+                <app-error-massage [nameControl]="emailControl"></app-error-massage>
+        
+            </div>
+        
+        
+        
+            <div class=" relative  mb-5 group ">
+                <input formControlName="password" [type]="!toggleInput?'password' :'text'" name="floating_password" 
+                id="floating_password" class="text-white input-style peer mb-3 " placeholder="Password " required />
+                    
+                <span (click)="togglePassword()" class="absolute top-0 right-0 cursor-pointer">
+        
+                    @if (!toggleInput) {
+                        <i class="fa-sharp fa-regular fa-eye"></i>
+                    }@else {
+                        <i class="fa-duotone fa-regular fa-eye-slash"></i>
+                    }
+        
+                </span>
+                 
+                @let phoneControl = loginForm.get("password") ;
+                <app-error-massage [nameControl]="phoneControl"></app-error-massage>
+        
+                
+            </div>
+
+            <a routerLink="/auth/forget-password" class="text-xl text-green-500    ">Forget_Password </a>
+
+        
+            <button type="submit" [disabled]="isCallingAPI"  class="text-white bg-main  float-end font-medium rounded-lg text-sm w-full sm:w-auto hover:bg-green-600 px-5 py-2.5 text-center">
+               @if (isCallingAPI) {
+                <i class="fa fa-spin fa-spinner"></i>
+               }@else {
+            login
+            }
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  

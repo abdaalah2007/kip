@@ -22,31 +22,30 @@ export class CartComponent implements OnInit{
   getCart(){
     this._cartService.getCard().subscribe({
       next: (res) => {
-        console.log(res)
+
         this.CartDetails = res
         this.isLoading = false
       }
     })
   }
-  removeItem(id: string){
-    this.isLoading = true
+  removeItem(id: string ){
     this._cartService.removeSpacificItem(id).subscribe({
       next: (res) => {
-        console.log(res)
+
         this.CartDetails = res
-        this.isLoading = false
+       
         
       }
     })
       
   }
-  updateCart(id:string,count:number){
-    this.isLoading = true
+  updateCart(id:string,count:number , load:HTMLButtonElement){
+    load.disabled=true
     this._cartService.updateProductQuanitity(id,`${count}`).subscribe({
       next: (res) => {
-        console.log(res)
+
         this.CartDetails = res
-        this.isLoading = false
+        load.disabled = false
       }
     })
   }
@@ -54,7 +53,7 @@ export class CartComponent implements OnInit{
     this.isLoading = true
     this._cartService.clearCart().subscribe({
       next: (res) => {
-        console.log(res)
+
         this.isLoading = false
         if(res.message == "success"){
           this.CartDetails = {} as Cart

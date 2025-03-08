@@ -59,14 +59,14 @@ export class AuthService {
 
   }
 
-  forgotPassword(email:string) {
-    this._httpClient.post(`${this.env}/auth/forgotPassword`, {email: email})
+  forgotPassword(data:any): Observable<any> {
+    return this._httpClient.post(`${this.env}/auth/forgotPasswords`, data)
   }
 
-  verifyResetCode(code:string) {
-    this._httpClient.post(`${this.env}/auth/verifyResetCode`, {resetCode: code})
+  verifyResetCode(code:number): Observable<any> {
+    return this._httpClient.post(`${this.env}/auth/verifyResetCode`, {resetCode: `${code}`})
   }
-  resetPassword(data:{}) {
-    this._httpClient.put(`${this.env}/auth/resetPassword`, {data})
+  resetPassword(data:{}): Observable<any> {
+    return this._httpClient.put(`${this.env}/auth/resetPassword`, data)
   }
 }

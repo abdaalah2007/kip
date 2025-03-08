@@ -10,7 +10,7 @@ export const errorsInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError( (err)=>{
       toastrService.error(err.error.message, 'FreshCart')
-      console.log('error jnjjnjjnjnjjnjjjnjnjnjnjnjn');
+      console.log('error');
       
     return throwError(()=>err)
 

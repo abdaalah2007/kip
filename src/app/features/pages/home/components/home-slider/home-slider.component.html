@@ -1,83 +1,9 @@
-<!-- 
-<div class="slider-container my-8">
-    <div class="slider-track">
-      @for (category of categories; track $index) {
-        <img [src]="category.image" [alt]="category.name" class="h-[300px]" [title]="category.name">
-      }
-      @for (category of categories; track $index) {
-        <img [src]="category.image" [alt]="category.name" class="h-[300px]" [title]="category.name">
-      }
-    </div>
-  </div> -->
-  <!-- <owl-carousel-o [options]="customOptions" class="slider-container">
-    @for (category of categories; track $index) {
-      <ng-template carouselSlide [id]="category._id">
-        <div class="mx-4">
-            <div class="slider-item ">
-                <img [src]="category.image" [alt]="category.name" class="slider-image" [title]="category.name">
-                <p class="slider-title">{{ category.name }}</p>
-              </div>
-        </div>
-     
-      </ng-template>
-    }
-  </owl-carousel-o> -->
-  <!-- <owl-carousel-o [options]="customOptions" class="slider-container">
-    @for (category of categories; track $index) {
-      <ng-template carouselSlide [id]="category._id">
-        <div class="slider-item">
-          <img [src]="category.image" [alt]="category.name" class="slider-image">
-          <p class="slider-title">{{ category.name }}</p>
-        </div>
-      </ng-template>
-    }
-  </owl-carousel-o> -->
-  <!-- <div class="slider-container ">
-    <div class="slider-track">
-      @for (category of categories; track $index) {
-        <div class="slider-item">
-            <figure class=" w-32 h-32">
-                          <img [src]="category.image" [alt]="category.name" class="slider-image w-full h-full">
-
-            </figure>
-          <p class="slider-title">{{ category.name }}</p>
-        </div>
-      }
-      ✅ استنساخ العناصر لتجنب الفراغ
-      @for (category of categories; track $index) {
-        <div class="slider-item w-32 h-32">
-            <figure class=" w-32 h-32">
-                <img [src]="category.image" [alt]="category.name" class="slider-image w-full h-full">
-
-  </figure>          <p class="slider-title">{{ category.name }}</p>
-        </div>
-      }
-    </div>
-  </div> -->
-
-
-  
-
-
-    <!-- <ng-template carouselSlide [id]="category._id">
-
-        <div class="card flex justify-center ">
-            <p-image src="{{category.image}}" [preview]="true" class="!h-[300px]"  [alt]="category.name"/>
-        </div>
-    </ng-template>
-    }
-
-
-</owl-carousel-o> -->
-
-
-<!-- <img [src]="categories." alt=""> -->
 
 
 
 
 <owl-carousel-o [options]="customOptions">
-    <!-- @if (categories){ -->
+    
       @for ( category of categories ; track $index) {
         <ng-template carouselSlide>
           <div class="category-card overflow-auto text-center w-fit p-3 group">
@@ -90,31 +16,4 @@
           </div>
         </ng-template>
       }
-    <!-- } @else { -->
-      <!-- <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template>
-      <ng-template carouselSlide>
-        <app-category-slider-load/>
-      </ng-template> -->
-    
-
   </owl-carousel-o>

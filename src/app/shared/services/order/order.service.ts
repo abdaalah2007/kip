@@ -26,9 +26,7 @@ export class OrderService {
     {
         shippingAddress:userDetails,     
     },
-    // {headers:{
-    //   token:JSON.parse(this.token)
-    // }}
+    
     )
   }
   cashPayment(id:string, userDetails:{}):Observable<any>{
@@ -36,10 +34,7 @@ export class OrderService {
     {
       shippingAddress:userDetails,
     },
-    // {
-    //   headers:{
-    //   token:JSON.parse(this.token)
-    // }}
+
     )
     
   }

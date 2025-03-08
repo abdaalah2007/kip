@@ -1,0 +1,51 @@
+<div class="flex align-items-center justify-center">
+    <div class="box mt-[110px] mb-10 flex align-items-center justify-center ">
+     <div class="login">
+ 
+             <h1 class="text-center text-[30px] font-bold bg-main rounded-3xl mb-[73px] " >LogIn</h1>
+             
+             @if(apiError){
+                 <div class=" text-red-800 rounded-lg bg-red-50  " role="alert">
+                     {{apiError}}
+                 </div>
+             }
+            
+             <div class="  ">
+                 @let emailControl =loginForm.get("email");
+                 <input formControlName="email"
+                 
+                  type="email"
+                   name="floating_email"
+                    id="floating_email"
+                     class="input-style peer text-white mb-3 w-full "
+                    placeholder="Email " required />
+         
+                 <app-error-massage [nameControl]="emailControl"></app-error-massage>
+      
+             </div>
+         
+         
+        
+           
+                  
+         
+                 
+          <div class="flex">
+            <!-- <a routerLink="/auth/forget-password" class="text-xl text-green-500 me-10 ">Forget_Password </a> -->
+            <button type="submit" (click)="forgetpassword()" [disabled]="isCallingAPI" class="text-white bg-main   font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                @if (isCallingAPI) {
+                 <i class="fa fa-spin fa-spinner"></i>
+                }@else {
+             login
+             }
+             </button>
+          </div>
+ 
+         
+         
+            </div>
+         </div>
+       </div>
+
+   
+ 

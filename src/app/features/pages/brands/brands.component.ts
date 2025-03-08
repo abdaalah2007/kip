@@ -30,14 +30,11 @@ getBrands(){
   this.isLoading =true
    this._brandsService.getAllBrands().subscribe({
      next: (data) => {
-       console.log(data.data)
+       
        this.Brand = data.data
      },
-     error: (err) => {
-       console.log(err)
-     },
      complete: () => {
-       console.log('Complete')
+       
        this.isLoading = false
      }
    })

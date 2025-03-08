@@ -21,14 +21,14 @@ export class CategoriesComponent {
   this.isLoding =true
      this._categoriesSliderService.getAllCategories().subscribe({
        next: (data) => {
-         console.log(data.data)
+         
          this.categories = data.data
        },
        error: (err) => {
          console.log(err)
        },
        complete: () => {
-         console.log('Complete')
+         
          this.isLoding = false
        }
      })

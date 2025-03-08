@@ -61,14 +61,11 @@ export class HomeSliderComponent implements OnInit {
   getCategories(){
       this._categoriesSliderService.getAllCategories().subscribe({
         next: (data) => {
-          console.log(data.data)
+          
           this.categories = data.data
         },
-        error: (err) => {
-          console.log(err)
-        },
+       
         complete: () => {
-          console.log('Complete')
         }
       })
   }

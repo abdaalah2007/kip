@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { NgClass } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MyTranslateService } from '../../services/myTranslate/my-translate.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit {      
+export class NavbarComponent implements OnInit { 
+  private readonly _myTranslateService=inject(MyTranslateService)     
   _authService =inject(AuthService)
   // _router = inject(Router)
   isLoggedIn: any 
@@ -30,13 +32,17 @@ export class NavbarComponent implements OnInit {
      signOut(){
       this._authService.logOut()
   }
-  isScrolling: boolean = false; // افتراضياً، النافبار ليس في حالة التمرير
+  isScrolling: boolean = false; 
 
   
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolling = window.scrollY > 50; // إذا كان التمرير أكثر من 50px
-    console.log("Scrolling:", this.isScrolling); // ✅ تحقق من التحديث في Console
+    this.isScrolling = window.scrollY > 50; 
+    console.log("Scrolling:", this.isScrolling); 
+  }
+
+  change(lang:string):void{
+    this._myTranslateService.changeLangTranslate(lang)
   }
   
 

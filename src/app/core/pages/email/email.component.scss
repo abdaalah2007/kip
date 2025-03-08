@@ -1,5 +1,5 @@
-  
-  @property --a {
+
+@property --a {
     syntax: "<angle>";
     inherits: false;
     initial-value: 0deg;
@@ -7,7 +7,8 @@
   
   .box {
     position: relative;
-   
+ 
+    
     width: 400px;
     height: 200px;
     background: repeating-conic-gradient(
@@ -21,10 +22,8 @@
     filter: drop-shadow(0 15px 50px #000);
     border-radius: 20px;
     animation: rotating 4s linear infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.7s all;
+   
+    transition: 0.5s;
   }
   
   @keyframes rotating {
@@ -67,10 +66,7 @@
   
   .box:hover {
     width: 450px;
-    height: 600px;
-  }
-  .box:hover h1{
-    margin-top: 0;
+    height: 500px;
   }
   
   .box:hover .login {

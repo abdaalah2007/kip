@@ -61,8 +61,6 @@ currentCareId!:string
 
   }
   onSubmitForm(selectedMethod : string) {
-    console.log(this.submitForm.value)
-    console.log(selectedMethod)
     if(selectedMethod =='Online'){
       this.onLinePayment()
     }else{
@@ -72,7 +70,6 @@ currentCareId!:string
   onLinePayment(){
     this.orderService.onlinePayment(this.currentCareId, this.submitForm.value).subscribe({
       next:(res:IonLinePayment) => {
-        console.log(res.session.url)
         window.location.assign(res.session.url)
       }
     })

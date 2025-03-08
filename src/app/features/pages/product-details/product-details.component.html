@@ -1,15 +1,15 @@
 @if (APIError) {
     <h1>Failded to load product</h1>
 }@else {
-    <div class=" my-10 grid grid-cols-1 md:grid-cols-2  ">
+    <div class=" mt-[130px] grid grid-cols-1 md:grid-cols-2  ">
     
     
             <owl-carousel-o [options]="customOptions ">
     
                 @for (src of productDetails.images; track $index) {
-                <ng-template carouselSlide class="">
-                    <figure class="">
-                        <img [src]="src" [alt]="src" height="" >
+                <ng-template carouselSlide class="" >
+                    <figure class="abd  ">
+                        <img [src]="src" [alt]="src" class="h-[500px]">
 
                     </figure>
                 </ng-template>
@@ -25,13 +25,15 @@
             <p class="text-xl font-semibold">
                 <i class="fa-solid fa-star-sharp" style="color: #FFD43B;"></i> {{ productDetails.price | currency: 'EG ' }}
             </p> 
-            <button (click)="addToCard(productDetails._id)" class="bg-main p-5 w-full">
+            <button (click)="addToCard(productDetails._id)" class="button w-full">
             
                 @if (isLoading) {
                     <i class="fa fa-spin fa-spinner"></i>
                 }@else {
-                    add
+                    <i class="fa-sharp-duotone fa-solid fa-cart-shopping fa-fade"></i>
+                    <span>  Buy Now</span>
                 }
+                
                
             </button>
         </div>
@@ -41,8 +43,22 @@
         @defer (on viewport(related)) {
 
                 <app-recent-products></app-recent-products>
+                <app-up></app-up>
             
         }
 
 }
+
+
+
+
+
+
+
+
+ 
+
+
+
+
 

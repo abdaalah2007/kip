@@ -14,68 +14,12 @@ import { ErrorMassageComponent } from "../../../shared/ui/error-massage/error-ma
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent implements OnDestroy {
-  // apiError!:string
-  // isCallingAPI: boolean=false
-  // Subscription:any
-  // registerForm :FormGroup =new FormGroup({
-  //   name : new FormControl(null, [Validators.required,Validators.minLength(3),Validators.maxLength(20)]),
-  //   email : new FormControl(null, [Validators.required,Validators.email]),
-  //   password : new FormControl(null, [Validators.required,Validators.pattern(/^[a-z]\w{5,}$/)]),
-  //   rePassword : new FormControl(null, [Validators.required,Validators.pattern(/^[a-z]\w{5,}$/)]),
-  //   phone : new FormControl(null, [Validators.required ,Validators.pattern(/^01[0125][0-9]{8}$/)])
-  // }, this.validateRePassword);
-
-  //     _authService=inject(AuthService)
-  //     _router=inject(Router)
-
-
-  // register(){
-  //   if(this.registerForm.invalid){
-  //     this.registerForm.markAllAsTouched() 
-  //   }else{
-  //     this.apiError=''
-  //     if(this.isCallingAPI==false){
-  //       this.isCallingAPI=true
-  //       this._authService.registerUser(this.registerForm.value).subscribe({
-  //         next: (res) => {
-  //           console.log(res);
-  //            this._router.navigate(['/auth/log'])
-  //            this.isCallingAPI=false
-  //          },
-  //          error:(err) => {
-  //           console.log(err)
-  //           this.apiError=err.error.message
-  //           this.isCallingAPI=false
-  //          },
-  //          complete:() => {
-  
-  //          }
-  //       })
-  //     }
-   
-  //     }
-     
-  //   }
-    
-
-  // validateRePassword(form:AbstractControl){
-  //   const password = form.get('password')?.value
-  //   const rePassword = form.get('rePassword')?.value
-  //   if(password==rePassword){
-  //     return null
-  //   }else{
-  //     return {misMatch:true}
-  //   }
- 
-  // }
-
-
   apiError!:string
   isCallingAPI: boolean=false
   Subscription:Subscription =new Subscription
   registerForm :FormGroup =new FormGroup({
     name : new FormControl(null, [Validators.required,Validators.minLength(3),Validators.maxLength(20)]),
-    email : new FormControl(null, [Validators.required,Validators.email]),
+    email : new FormControl(null, [Validators.required,Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
     password : new FormControl(null, [Validators.required,Validators.pattern(/^[a-z]\w{5,}$/)]),
     rePassword : new FormControl(null, [Validators.required,Validators.pattern(/^[a-z]\w{5,}$/)]),
     phone : new FormControl(null, [Validators.required ,Validators.pattern(/^01[0125][0-9]{8}$/)])
@@ -97,7 +41,7 @@ export class RegisterComponent implements OnDestroy {
 
                          },
                          error:(err) => {
-                          console.log(err)
+                          
                           this.apiError=err.error.message
                           this.isCallingAPI=false
                          },

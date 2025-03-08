@@ -13,23 +13,23 @@
           <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-slate-100 md:flex-row md:space-x-8  md:mt-0 md:border-0  ">
             <li>
               <a routerLink="/home" routerLinkActive="text-main"
-                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">home</a>
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">{{"navbar.home" | translate }}</a>
             </li>
             <li>
               <a routerLink="/cart" routerLinkActive="text-main"
-                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">cart</a>
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">{{"navbar.cart" |translate}}</a>
             </li>
             <li>
               <a routerLink="/products" routerLinkActive="text-main"
-                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">products</a>
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">{{"navbar.products" |translate}}</a>
             </li>
             <li>
               <a routerLink="/categories" routerLinkActive="text-main"
-                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">catagories</a>
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">{{"navbar.categories" |translate}}</a>
             </li>
             <li>
               <a routerLink="/brands" routerLinkActive="text-main"
-                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">brands</a>
+                class="block py-2 px-3 text-gray-900 rounded-sm bg-slate-100 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0">{{"navbar.brands" |translate}}</a>
             </li>
   
           </ul>
@@ -38,6 +38,7 @@
    
 
     </div>
+    
 
     <div class="flex items-center gap-x-4">
  
@@ -48,26 +49,50 @@
             </li>
           }@else {
             <li> 
-              <a routerLink="/auth" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">register</a>
+              <a routerLink="/auth" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">Register</a>
             </li>
             <li>
-              <a routerLink="/auth/log" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">login</a>
+              <a routerLink="/auth/log" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">Login</a>
             </li>
           } 
     
           <!-- <li>
-            {{"navbar.login" |translate}}
+            {{"navbar.signOut" |translate}}
             <a routerLink="/auth/login" routerLinkActive="!text-main" class="text-gray-900 hover:text-main">Login</a>
           </li> -->
         
         
  </ul>
-        <button data-collapse-toggle="navbar-default" type="button" class=" inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-default" aria-expanded="false">
+        <!-- <button data-collapse-toggle="navbar-default" type="button" class=" inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
-      </button>
+      </button> -->
+
+      
+<!-- <button id="dropdownOffsetButton" data-dropdown-toggle="dropdownDistance" data-dropdown-offset-distance="35" data-dropdown-offset-skidding="0"
+ class="text-white bg-green-700 hover:bg-main focus:ring-4  font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center " type="button">
+  LANG
+
+  <svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+  </svg>
+  </button> -->
+  
+  <!-- Dropdown menu -->
+  <!-- <div id="dropdownDistance" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+        <li>
+          <a (click)="change('en')" class="block px-4 py-2 hover:bg-gray-100 ">English</a>
+        </li>
+        <li>
+          <a (click)="change('ar')"  class="block px-4 py-2 hover:bg-gray-100 ">عربي</a>
+        </li>
+
+      </ul>
+  </div> -->
+  
 
     </div> 
 

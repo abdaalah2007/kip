@@ -17,7 +17,7 @@
 }@else{
     <div class="grid grid-cols-3  w-[90%] m-auto my-[120px]  gap-5">
         @for (item of categories; track $index) {
-            <div class="bg-emerald-950 rounded-lg p-4">
+            <div class="bg-green-900 rounded-lg p-4">
             <div>
                 <img [src]="item.image" class="rounded-lg w-[100%]  h-[300px]  max-w-lg transition-all duration-300  cursor-pointer filter grayscale hover:grayscale-0" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png" alt="">
                 <h2 class="text-3xl text-center text-white my-8">{{item.name}}</h2>

@@ -2,46 +2,10 @@ import { RatingModule } from 'primeng/rating';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { AnimateOnScroll } from 'primeng/animateonscroll';
 
-// import { Component, inject, OnInit } from '@angular/core';
-// import { ProductService } from '../../../../../shared/services/product/product.service';
-
-// @Component({
-//   selector: 'app-recent-products',
-//   imports: [],
-//   templateUrl: './recent-products.component.html',
-//   styleUrl: './recent-products.component.scss',
-// })
-// export class RecentProductsComponent implements OnInit {
-//  private readonly _ProductService=inject(ProductService)
-
-//  ngOnInit(): void {
-//     this.getProducts();
-
-//   }
-//  }
-
-//  getProducts(){
-//     this._ProductService.getProducts().subscribe
-//       next: (res) => {
-//         console.log(res);
-//       },
-//       error: (err) => {
-//         console.log(err);
-//       },
-//       complete: () =>  {
-//         console.log('completed');
-//       },
-
-//     })
 
 
-//   }
 
-
-// ////////////////////////////////////////////////////////
 import { Component, inject, OnInit } from '@angular/core';
-// import { RatingModule } from 'primeng/rating';
-
 import { ProductService } from '../../../../../shared/services/product/product.service';
 import { Prodouct } from '../../../../../shared/interfaces/prodouct';
 import { input } from '@angular/core';

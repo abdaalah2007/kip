@@ -7,8 +7,7 @@ export const routes: Routes = [
     { path: "auth", component: AuthLayoutComponent, children: [
         
             { path: "",canActivate:[loggedUserGuard], loadComponent: () => import('./core/pages/register/register.component').then(c => c.RegisterComponent) },
-            {path :"log", canActivate:[loggedUserGuard],loadComponent:()=>import('./core/pages/log/log.component').then(c=>c.LogComponent)},
-            // { path: "login", loadComponent: () => import('./core/pages/login/login.component').then(c => c.LoginComponent) },
+            {path :"log", canActivate:[loggedUserGuard],loadComponent:()=>import('./core/pages/login/log.component').then(c=>c.LogComponent)},
             { path: "forget-password",canActivate:[loggedUserGuard],loadComponent: () => import('./core/pages/forget-password/forget-password.component').then(c => c.ForgetPasswordComponent) },
 
         ]},
@@ -22,6 +21,7 @@ export const routes: Routes = [
     {path: "productDetails/:id",canActivate:[authGuard],  loadComponent: () => import('./features/pages/product-details/product-details.component').then(c => c.ProductDetailsComponent)},
     {path: "allorders",canActivate:[authGuard],  loadComponent: () => import('./features/pages/all-orders/all-orders.component').then(c => c.AllOrdersComponent)},
 
-
+    {path: "", loadComponent: () => import('./core/pages/login/log.component').then(c => c.LogComponent   )}
+,
     {path: "**", loadComponent: () => import('./core/pages/not-found/not-found.component').then(c => c.NotFoundComponent)}
 ];
